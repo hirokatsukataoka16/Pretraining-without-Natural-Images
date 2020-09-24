@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pre-training without Natural Images</title>
+    <link rel="stylesheet" type="text/css" href="./pvg.css">
+    <link rel="shortcut icon" type="image/png" href="./img/cc_logo_1_crop.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+<script type="text/javascript" src="./header.js"></script>
+
+<style>
+a.myclass {
+    color:#DE382D;
+    text-decoration: underline
+}
+</style>
+
+<style>
+a.link {
+    text-decoration: underline
+}
+</style>
+
+<h1 align="center" style="font-size: 30pt;"><b>Pre-training without Natural Images</b></h1><br/>
+<center>
+    <font color="#c7254e">Asian Conference on Computer Vision (ACCV) 2020<br>Oral Presentation, The paper got 3 strong accepts!</font><br><br>
+    <a href="http://hirokatsukataoka.net/"  class="">Hirokatsu Kataoka</a><sup>1</sup> &emsp; Kazushige Okayasu<sup>1,2</sup> &emsp; Asato Matsumoto<sup>1,3</sup> &emsp; Eisuke Yamagata<sup>4</sup><br>
+    Ryosuke Yamada<sup>1,2</sup> &emsp; <a href="https://mmai.tech/" class="">Nakamasa Inoue</a><sup>4</sup> &emsp; <a href="http://www.is.fr.dendai.ac.jp/"  class="">Akio Nakamura</a><sup>2</sup> &emsp; <a href="https://staff.aist.go.jp/yu.satou/"  class="">Yutaka Satoh</a><sup>1,3</sup><br>
+    1: AIST &emsp; 2: TDU &emsp; 3: Univ. of Tsukuba &emsp; 4: TITech<br><br>
+    <a href="http://hirokatsukataoka.net/pdf/accv20_kataoka_fractaldb.pdf" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Paper</a>
+    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Code</a>
+    <a href="#dataset" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dataset</a>
+    <br><br>
+    <img src="./img/teaser.png" vspace=-100pt style="width: 100%;"/>
+</center>
+
+<br>
+<h2>Abstract</h2>
+<p>
+Is it possible to use convolutional neural networks pre-trained without any natural images to assist natural image understanding? The paper proposes a novel concept, Formula-driven Supervised Learning. We automatically generate image patterns and their category labels by assigning fractals, which are based on a natural law existing in the background knowledge of the real world. Theoretically, the use of automatically generated images instead of natural images in the pre-training phase allows us to generate an infinite scale dataset of labeled images. Although the models pre-trained with the proposed Fractal DataBase (FractalDB), a database without natural images, does not necessarily outperform models pre-trained with human annotated datasets at all settings, we are able to partially surpass the accuracy of ImageNet/Places pre-trained models. The image representation with the proposed FractalDB captures a unique feature in the visualization of convolutional layers and attentions.
+</p>
+
+<br>
+<h2>Overview</h2>
+Proposed pre-training without natural images based on fractals, which is a natural formula existing in the real world (Formula-driven Supervised Learning). We automatically generate a large-scale labeled image dataset based on an iterated function system (IFS). (Bottom-left image)
+The pre-training framework with Fractal geometry for feature representation learning. We can enhance natural image recognition by pre-training without natural images. (Bottom-right image) Accuracy transition among ImageNet-1k, FractalDB-1k and training from scratch.
+<br><br><br>
+<center>
+        <img src="./img/framework.png" style="width: 100%;"/>
+</center>
+
+<br><br><br>
+<h2>Example Results</h2>
+
+We compared Scratch from random parameters, Places-30/365, ImageNet-100/1k (ILSVRC’12), and FractalDB-1k/10k in the following table. Since our implementation is not completely the same as a representative learning configuration, we implemented the framework fairly with the same parameters and compared the proposed method (FractalDB-1k/10k) with a baseline (Scratch, DeepCluster-10k, Places-30/365, and ImageNet-100/1k). The  proposed  FractalDB  pre-trained  model  recorded  several  good  performance rates. We respectively describe them by comparing our Formula-driven Supervised Learning with Scratch, Self-supervised and Supervised Learning.
+<br>
+<center>
+        <img src="./img/results.png" style="width: 85%;"/>
+</center>
+
+
+<br>
+<h2>Citation</h2>
+@inproceedings{KataokaACCV2020,<br>
+&emsp;author     = {Kataoka, Hirokatsu and Okayasu, Kazushige and Matsumoto, Asato and Yamagata, Eisuke and Yamada, Ryosuke and Inoue, Nakamasa and Nakamura, Akio and Satoh, Yutaka},<br>
+&emsp;title      = {Pre-training without Natural Images},<br>
+&emsp;journal    = {Asian Conference on Computer Vision (ACCV)},<br>
+&emsp;year       = {2020}<br>
+}
+<br><br>
+
+<a name="dataset"><h2>Dataset Download</h2></a>
+<ul>
+    <li>
+        FractalDB-1k (1k categories x 1k instances; Total 1M images; Under construction...).
+        <a href="http://hirokatsukataoka.net/">[Dataset (21.0GB)]</a>
+    </li>
+    <li>
+        FractalDB-60 (60 well-known categories x 1k instances; Total 60k images).
+        <a href="http://hirokatsukataoka.net/temp/database/FractalDB-60.tar.gz">[Dataset (1.2GB)]</a>
+    </li>
+</ul>
+
+<br><br><br>
+<script type="text/javascript" src="./footer.js"></script>
+</body></html>
